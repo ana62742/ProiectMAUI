@@ -30,7 +30,7 @@
     <StackLayout Margin="10">
         <HorizontalStackLayout>
             <Label FontSize="24" Text="Your Upcoming "/>
-            <Label FontSize="24" Text=" Concerts" TextColor="#008b8b"/>
+            <Label FontSize="24" Text="Concerts" TextColor="#008b8b" FontAttributes="Bold"/>
         </HorizontalStackLayout>
 
         <CollectionView ItemsSource="{Binding Concerts}">
