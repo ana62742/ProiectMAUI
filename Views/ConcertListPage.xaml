@@ -26,22 +26,28 @@
             </searchHandlers:ConcertSearchHandler.ItemTemplate>
         </searchHandlers:ConcertSearchHandler>
     </Shell.SearchHandler>
-    
+
     <StackLayout Margin="10">
         <HorizontalStackLayout>
             <Label FontSize="24" Text="Your Upcoming "/>
-            <Label FontSize="24" Text="Concerts" TextColor="#008b8b"/>
+            <Label FontSize="24" Text=" Concerts" TextColor="#008b8b"/>
         </HorizontalStackLayout>
-        
+
         <CollectionView ItemsSource="{Binding Concerts}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:ConcertModel">
                     <Frame Margin="10" Padding="10">
                         <StackLayout Margin="10" Spacing="15">
-                            <Image Source="{Binding Image}" Aspect="AspectFill"/>
-                            <Label Text="{Binding Name}" FontSize="20" FontAttributes="Bold" TextColor="DarkCyan" />
-                            <Label Text="{Binding Date}" FontSize="14"/>
-                            <Label Text="{Binding Description}" FontSize="14" />
+                            <Image Source="{Binding Image}"
+                                   HeightRequest="150"/>
+                            <Label Text="{Binding Name}" 
+                                   FontSize="20" 
+                                   FontAttributes="Bold" 
+                                   TextColor="DarkCyan" />
+                            <Label Text="{Binding Date}" 
+                                   FontSize="14"/>
+                            <Label Text="{Binding Description}" 
+                                   FontSize="14" />
                         </StackLayout>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:ConcertListPageViewModel}},Path=DisplayActionCommand}"
@@ -51,79 +57,12 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        
+
         <Button Text="Add Concert" 
                 Command="{Binding AddUpdateConcertCommand}"
                 BackgroundColor="Black"
                 Padding="16" 
-                CornerRadius="2" 
-                VerticalOptions="Center" />
+                CornerRadius="2"
+                VerticalOptions="EndAndExpand"/>
     </StackLayout>
 </ContentPage>
-<!--<Grid Padding="16">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="AUTO"/>
-            <RowDefinition Height="AUTO"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="AUTO"/>
-        </Grid.RowDefinitions>
-
-        --><!-- Your concerts --><!--
-        <HorizontalStackLayout>
-            <Label FontSize="24" Text="Your "/>
-            <Label FontSize="24" Text="Concerts" TextColor="#008b8b"/>
-        </HorizontalStackLayout>
-        --><!-- Concerts you have created --><!--
-        <Label Text="Concerts you have added" Grid.Row="1" TextColor="Gray"/>
-        --><!-- Scrollable list of concerts --><!--
-        <ListView  x:Name="collectionView">
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="models: ConcertModel">
-                    <Border MinimumHeightRequest="315"
-                            Stroke="#efefef">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="2*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Image Source="{Binding Image}"
-                                   Aspect="AspectFill"/>
-
-                            <Grid Grid.Column="1">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="AUTO"/>
-                                    <RowDefinition Height="AUTO"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="AUTO"/>
-                                    <RowDefinition Height="AUTO"/>
-                                </Grid.RowDefinitions>
-
-                                --><!-- Name --><!--
-                                <Label Text="{Binding Name}"
-                                       FontAttributes="Bold"
-                                       FontSize="24"/>
-                                --><!-- Start and End DateTime --><!--
-                                <Label Text="{Binding Date}"
-                                       FontAttributes="Bold"
-                                       FontSize="24"/>
-                                --><!-- Description --><!--
-                                <Label Text="{Binding Description}"
-                                       Grid.Row="2"
-                                       Padding="0,8,0,0"
-                                       TextColor="#555"/>
-                            </Grid>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        --><!-- Add new concert button --><!--
-        <Button Text="Add a new concert" 
-                BackgroundColor="Black" 
-                Padding="16" 
-                CornerRadius="2" 
-                Grid.Row="3"
-                Clicked="OnConcertAddedClicked"/>
-
-    </Grid>-->
